@@ -25,4 +25,10 @@ describe("Policy", () => {
     expect(addressEl).toBeInTheDocument();
     expect(nameEl).toBeInTheDocument();
   });
+
+  it("should have a sign out button", () => {
+    render(<Policy />);
+    const signoutBtn = screen.getByText(/sign out/i);
+    expect(signoutBtn).toBeInTheDocument();
+  });
 });

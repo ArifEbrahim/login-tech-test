@@ -10,6 +10,7 @@ export default function Policy() {
       <PolicySection label={'Car:'} text={''}/>
       <PolicySection label={'Name:'} text={''}/>
       <PolicySection label={'Address:'} text={''}/>
+      <button>Sign out</button>
     </>
   );
 }
