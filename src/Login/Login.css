@@ -45,7 +45,7 @@ input{
   border-radius: 5px;
 }
 
-.btn{
+.btn-dark{
   padding: 8px 12px;
   border-radius: 5px;
   transform: skewX(-20deg);
@@ -58,7 +58,7 @@ button:hover {
   box-shadow: inset 85px 0 0 grey;
 }
 
-.btn-text{
+.btn-text-light{
   font-weight: 600;
   font-size: 12px;
   transform: skewX(20deg);

@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function PolicySection(props) {
   return (
-    <div>
-      <div>{props.label}</div>
-      <div>{props.text}</div>
+    <div className='policy-section-component'>
+      <div className='label'>{props.label}</div>
+      <div className='text'>{props.text}</div>
     </div>
   )
 }

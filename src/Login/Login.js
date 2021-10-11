@@ -57,9 +57,9 @@ export default function Login() {
               <button
                 data-testid="submit-btn"
                 onClick={handleClick}
-                className="btn"
+                className="btn-dark"
               >
-                <span className="btn-text">Sign in</span>
+                <span className="btn-text-light">Sign in</span>
               </button>
             </div>
           </div>
