@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PolicySection from "./PolicySection";
+import axios from "axios";
 
 export default function Policy() {
+  
+  useEffect(()=>{
+    axios.get()
+  })
+  
   return (
     <>
       <h2>My Policy</h2>

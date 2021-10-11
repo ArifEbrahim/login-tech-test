@@ -2,6 +2,9 @@ import React from "react";
 import Policy from "./Policy";
 import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
+import axios from "axios";
+
+jest.mock("axios");
 
 afterEach(cleanup);
 
@@ -31,4 +34,9 @@ describe("Policy", () => {
     const signoutBtn = screen.getByText(/sign out/i);
     expect(signoutBtn).toBeInTheDocument();
   });
+
+  it('should call the API when rendered initially', () => {
+    render(<Policy />);
+    expect(axios.get).toHaveBeenCalled()
+  })
 });
