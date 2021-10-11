@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function Policy() {
   return (
-    <div>
-      Policy
-    </div>
+    <>
+    <h2>My Policy</h2>
+    </>
   )
 }
