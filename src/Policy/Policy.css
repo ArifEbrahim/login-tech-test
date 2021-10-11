@@ -6,11 +6,13 @@
 .policy-header {
   display: flex;
   justify-content: center;
+  margin-top: 5rem;
 }
 
 .policy-section {
   display: flex;
   justify-content: center;
+  margin-top: 2rem;
 }
 
 .policy-box-1 {
