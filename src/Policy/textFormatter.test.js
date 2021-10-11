@@ -28,17 +28,49 @@ describe("Text formatter", () => {
     expect(proposerName).toBe("Dave Jones");
   });
 
-  it('correctly formats the address', () => {
+  it("correctly formats the address", () => {
     const mockAddress = {
-      "line_1": "Flat 1, 11 The Street",
-      "line_2": "Little Hampton",
-      "line_3": "Burton-on-the-water",
-      "county": "Avon",
-      "city": "Stroud",
-      "country": "GB",
-      "postcode": "W53TR"
-    }
+      line_1: "Flat 1, 11 The Street",
+      line_2: "Little Hampton",
+      line_3: "Burton-on-the-water",
+      county: "Avon",
+      city: "Stroud",
+      country: "GB",
+      postcode: "W53TR",
+    };
     const newAddress = tf.formatAddress(mockAddress);
-    expect(newAddress).toBe('Flat 1, 11 The Street, Little Hampton, W53TR')
+    expect(newAddress).toBe("Flat 1, 11 The Street, Little Hampton, W53TR");
+  });
+
+  it('correctly formats the vehicle', () => {
+    const mockVehicle ={
+      "reg": "WO123XX",
+      "vin": "YV1UZ25UCK1337428",
+      "type": "01",
+      "make": "Tesla",
+      "model": "S",
+      "colour": "black",
+      "rating": 21,
+      "group_rating_50": 21,
+      "group_rating_20": 10,
+      "abi_code": "01001000",
+      "engine": 1650,
+      "fuel": "001",
+      "owner": "1",
+      "keeper": "1",
+      "estimated_yearly_mileage": 10000,
+      "purchase_date": "2016-01-01",
+      "manufacture_date": "2016-01-01",
+      "current_value": 1000,
+      "is_rhd": true,
+      "seats": 5,
+      "doors": 3,
+      "is_parked_home": true,
+      "is_import": true,
+      "overnight_postcode": "SW1 5BB",
+      "parked_location": "Garage"
+      }
+      const newVehicle = tf.formatVehicle(mockVehicle);
+      expect(newVehicle).toBe('Tesla S black - WO123XX')
   })
 });
