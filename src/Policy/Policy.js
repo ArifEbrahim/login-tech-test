@@ -4,6 +4,7 @@ import axios from "axios";
 import TextFormatter from "./textFormatter";
 
 export default function Policy() {
+  const [policy, setPolicy] = useState("");
   const [proposer, setProposer] = useState("");
   const [address, setAddress] = useState("");
   const [vehicle, setVehicle] = useState("");
@@ -26,15 +27,19 @@ export default function Policy() {
       const response = await axios.get(url, config);
       setProposer(tf.formatName(response.data.proposer));
       setAddress(tf.formatAddress(response.data.policy.address));
-      setVehicle(tf.formatVehicle(response.data.vehicle))
+      setVehicle(tf.formatVehicle(response.data.vehicle));
+      setPolicy(response.data.policy);
     } catch (error) {}
   };
 
   return (
     <>
       <h2>My Policy</h2>
-      <PolicySection label={"Policy reference:"} text={""} />
-      <PolicySection label={"Cover type:"} text={""} />
+      <PolicySection
+        label={"Policy reference:"}
+        text={policy ? tf.formatPolicyRef(policy) : ""}
+      />
+      <PolicySection label={"Cover type:"} text={policy.cover} />
       <PolicySection label={"Car:"} text={vehicle} />
       <PolicySection label={"Name:"} text={proposer} />
       <PolicySection label={"Address:"} text={address} />

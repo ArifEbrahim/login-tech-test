@@ -42,35 +42,55 @@ describe("Text formatter", () => {
     expect(newAddress).toBe("Flat 1, 11 The Street, Little Hampton, W53TR");
   });
 
-  it('correctly formats the vehicle', () => {
-    const mockVehicle ={
-      "reg": "WO123XX",
-      "vin": "YV1UZ25UCK1337428",
-      "type": "01",
-      "make": "Tesla",
-      "model": "S",
-      "colour": "black",
-      "rating": 21,
-      "group_rating_50": 21,
-      "group_rating_20": 10,
-      "abi_code": "01001000",
-      "engine": 1650,
-      "fuel": "001",
-      "owner": "1",
-      "keeper": "1",
-      "estimated_yearly_mileage": 10000,
-      "purchase_date": "2016-01-01",
-      "manufacture_date": "2016-01-01",
-      "current_value": 1000,
-      "is_rhd": true,
-      "seats": 5,
-      "doors": 3,
-      "is_parked_home": true,
-      "is_import": true,
-      "overnight_postcode": "SW1 5BB",
-      "parked_location": "Garage"
-      }
-      const newVehicle = tf.formatVehicle(mockVehicle);
-      expect(newVehicle).toBe('Tesla S black - WO123XX')
-  })
+  it("correctly formats the vehicle", () => {
+    const mockVehicle = {
+      reg: "WO123XX",
+      vin: "YV1UZ25UCK1337428",
+      type: "01",
+      make: "Tesla",
+      model: "S",
+      colour: "black",
+      rating: 21,
+      group_rating_50: 21,
+      group_rating_20: 10,
+      abi_code: "01001000",
+      engine: 1650,
+      fuel: "001",
+      owner: "1",
+      keeper: "1",
+      estimated_yearly_mileage: 10000,
+      purchase_date: "2016-01-01",
+      manufacture_date: "2016-01-01",
+      current_value: 1000,
+      is_rhd: true,
+      seats: 5,
+      doors: 3,
+      is_parked_home: true,
+      is_import: true,
+      overnight_postcode: "SW1 5BB",
+      parked_location: "Garage",
+    };
+    const newVehicle = tf.formatVehicle(mockVehicle);
+    expect(newVehicle).toBe("Tesla S black - WO123XX");
+  });
+
+  it("correctly formats the policy reference", () => {
+    const mockPolicy = {
+      compulsory_excess: 100,
+      voluntary_excess: 100,
+      usage: "SDP",
+      cover: "Comprehensive",
+      auto_renew: true,
+      start_date: 1599567165,
+      end_date: 1599567165,
+      billing_day_date: 21,
+      underwriter_reference: "zurich",
+      underwriter_policy_reference: "AXABM000001",
+      product_reference: "pay-by-mile",
+      created_at: 1599567165,
+      policy_reference: "apple-orange-pear",
+    };
+    const newPolicyRef = tf.formatPolicyRef(mockPolicy);
+    expect(newPolicyRef).toBe("apple orange pear");
+  });
 });

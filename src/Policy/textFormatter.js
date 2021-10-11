@@ -8,6 +8,10 @@ class TextFormatter {
   formatVehicle(vehicle) {
     return `${vehicle.make} ${vehicle.model} ${vehicle.colour} - ${vehicle.reg}`
   }
+  formatPolicyRef(policy) {
+    const policyRef = policy.policy_reference
+    return policyRef.replaceAll('-', ' ')
+  }
 }
 
 export default TextFormatter;
