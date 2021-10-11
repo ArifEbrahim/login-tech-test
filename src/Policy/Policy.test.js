@@ -59,7 +59,9 @@ describe("Policy", () => {
       });
     });
     expect(screen.getByText(/dave jones/i)).toBeInTheDocument();
-    expect(screen.getByText(/Flat 1, 11 The Street, Little Hampton, W53TR/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Flat 1, 11 The Street, Little Hampton, W53TR/i)
+    ).toBeInTheDocument();
     expect(screen.getByText(/Tesla S black - WO123XX/i)).toBeInTheDocument();
     expect(screen.getByText(/comprehensive/i)).toBeInTheDocument();
     expect(screen.getByText(/apple orange pear/i)).toBeInTheDocument();
