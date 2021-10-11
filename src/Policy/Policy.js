@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import PolicySection from "./PolicySection";
 import axios from "axios";
+import TextFormatter from "./textFormatter";
 
 export default function Policy() {
   const [proposer, setProposer] = useState("");
+  const tf = new TextFormatter();
   const url = "https://api.bybits.co.uk/policys/details";
 
   useEffect(() => {
@@ -20,7 +22,7 @@ export default function Policy() {
     };
     try {
       const response = await axios.get(url, config);
-      setProposer(`${response.data.proposer.first_names} ${response.data.proposer.last_names}`)
+      setProposer(tf.formatName(response.data.proposer))
     } catch(error) {}
 
   };
