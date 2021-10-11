@@ -3,12 +3,14 @@ import PolicySection from "./PolicySection";
 import axios from "axios";
 import TextFormatter from "./textFormatter";
 import "./Policy.css";
+import { useHistory } from "react-router-dom";
 
 export default function Policy() {
   const [policy, setPolicy] = useState("");
   const [proposer, setProposer] = useState("");
   const [address, setAddress] = useState("");
   const [vehicle, setVehicle] = useState("");
+  let history = useHistory();
   const tf = new TextFormatter();
   const url = "https://api.bybits.co.uk/policys/details";
 
@@ -36,6 +38,11 @@ export default function Policy() {
     } catch (error) {}
   };
 
+  const signOut = () => {
+    localStorage.clear();
+    history.push("/");
+  };
+
   return (
     <div className="policy-container">
       <header className="policy-header">
@@ -61,7 +68,7 @@ export default function Policy() {
             <PolicySection label={"Address:"} text={address} />
           </div>
           <div className="btn-box">
-            <button className="btn-light">
+            <button className="btn-light" onClick={signOut}>
               <span className="btn-text-dark">Sign out</span>
             </button>
           </div>

@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Login tech test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An example tech test of creating login functionality in React. This app was created entirely through TDD with over 90% test coverage.
 
-## Available Scripts
+I have deployed the website [here](https://login-tech-test.netlify.app/)
 
-In the project directory, you can run:
+## Design notes
 
-### `npm start`
+### Assumptions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+No error handling is performed in this app and in reality this would need to be addressed. Also no verification of user details is performed and I assumed this was done on the server. However I did make the username and password fields 'required'.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Design choices
 
-### `npm test`
+- React router was used to simulate a multi-page website and axios was used for API calls.
+- No frameworks were used to style the website, only CSS was used. The style was inspired by the ByBits login screen.
+- In order to download polciy data, the access token is saved to local storage. This is then used when consuming the API.
+- I added a 'Sign Out' button to allow the user to return to the Login page and clear local storage.
+- The pages are fully responsive and the website was tested on both a computer and phone screen.
+- A specific class was created to format text from the API response and keep the Policy component clean.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Improvements / future work
 
-### `npm run build`
+I spent around 6 hours on this exercise, time permitting I would address the following next:
+- The buttons have an animation but it appears to be stuttering. 
+- There is an ESLint warning that needs to be addressed but no impact to functionality.
+- Sign out functionality was added but not tested (I need to look into testing react router).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How to use
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### To install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+$ git clone https://github.com/ArifEbrahim/login-tech-test.git
+$ cd login-tech-test
+$ npm install
+```
 
-### `npm run eject`
+#### To run
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+$ npm start
+```

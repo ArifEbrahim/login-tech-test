@@ -35,7 +35,7 @@ export default function Login() {
         <h2 data-testid="login-header-text">Sign In</h2>
       </header>
       <section className="form-section">
-        <div className='form-box-1'>
+        <div className="form-box-1">
           <div className="form-box-2">
             <label htmlFor="username">Username:</label>
             <input

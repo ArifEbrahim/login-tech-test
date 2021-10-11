@@ -66,4 +66,5 @@ describe("Policy", () => {
     expect(screen.getByText(/comprehensive/i)).toBeInTheDocument();
     expect(screen.getByText(/apple orange pear/i)).toBeInTheDocument();
   });
+  
 });
