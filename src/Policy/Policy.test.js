@@ -3,6 +3,8 @@ import Policy from "./Policy";
 import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import axios from "axios";
+import { act } from "react-dom/test-utils";
+import { mockAPIData } from "./mockAPIData";
 
 jest.mock("axios");
 
@@ -35,8 +37,28 @@ describe("Policy", () => {
     expect(signoutBtn).toBeInTheDocument();
   });
 
-  it('should call the API when rendered initially', () => {
+  it("should call the API when rendered initially", () => {
+    const url = "https://api.bybits.co.uk/policys/details";
+    const config = {
+      headers: {
+        environment: "mock",
+        Authorization: "Bearer null",
+        "Content-Type": "application/json",
+      },
+    };
     render(<Policy />);
-    expect(axios.get).toHaveBeenCalled()
-  })
+    expect(axios.get).toHaveBeenCalledWith(url, config);
+  });
+
+  it("should render API data correctly", async () => {
+    axios.get.mockResolvedValue({ data: mockAPIData });
+    await act(() => {
+      render(<Policy />);
+      return waitFor(() => {
+        expect(axios.get).toHaveBeenCalled();
+      });
+    });
+    const nameEl = screen.getByText(/dave jones/i);
+    expect(nameEl).toBeInTheDocument();
+  });
 });
