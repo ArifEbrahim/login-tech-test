@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
+import "./Login.css";
 
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  let history = useHistory();
   const url = "https://api.bybits.co.uk/auth/token";
   const config = {
     headers: {
@@ -18,30 +21,50 @@ export default function Login() {
       password: password,
       type: "USER_PASSWORD_AUTH",
     };
-    const response = await axios.post(url, data, config);
-    if (response) {
+
+    try {
+      const response = await axios.post(url, data, config);
       localStorage.setItem("token", response.data.access_token);
-    }
+      history.push("/policy");
+    } catch (error) {}
   };
 
   return (
-    <>
-      <h2 data-testid="login-header-text">Sign In</h2>
-      <label htmlFor="username">Username:</label>
-      <input
-        type="text"
-        id="username"
-        onChange={e => setUsername(e.target.value)}
-      ></input>
-      <label htmlFor="password">Password:</label>
-      <input
-        type="text"
-        id="password"
-        onChange={e => setPassword(e.target.value)}
-      ></input>
-      <button data-testid="submit-btn" onClick={handleClick}>
-        Sign in
-      </button>
-    </>
+    <div className="login-container">
+      <header className="login-header">
+        <h2 data-testid="login-header-text">Sign In</h2>
+      </header>
+      <section className="form-section">
+        <div className='form-box-1'>
+          <div className="form-box-2">
+            <label htmlFor="username">Username:</label>
+            <input
+              type="text"
+              required
+              id="username"
+              onChange={e => setUsername(e.target.value)}
+              value={username}
+            ></input>
+            <label htmlFor="password">Password:</label>
+            <input
+              type="text"
+              required
+              id="password"
+              onChange={e => setPassword(e.target.value)}
+              value={password}
+            ></input>
+            <div className="btn-box">
+              <button
+                data-testid="submit-btn"
+                onClick={handleClick}
+                className="btn"
+              >
+                <span className="btn-text">Sign in</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

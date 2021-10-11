@@ -37,7 +37,7 @@ it("should call axios on submit", () => {
   expect(axios.post).toHaveBeenCalled();
 });
 
-it("should submit the correct data to the API", () => {
+it("should submit user data to the API", () => {
   render(<Login />);
   const url = "https://api.bybits.co.uk/auth/token";
   const config = {
