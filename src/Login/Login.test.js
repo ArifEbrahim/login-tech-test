@@ -19,3 +19,9 @@ it("should have a username and password field", () => {
   expect(usernameField).toBeInTheDocument()
   expect(passwordField).toBeInTheDocument()
 });
+
+it('should have a sign in button', () => {
+  render(<Login />);
+  const submitBtn = screen.getByTestId('submit-btn')
+  expect(submitBtn).toBeInTheDocument()
+})

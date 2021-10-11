@@ -8,6 +8,7 @@ export default function Login() {
     <input type='text' id='username'></input>
     <label htmlFor='password'>Password:</label>
     <input type='text' id='password'></input>
+    <button data-testid='submit-btn'></button>
     </>
   )
 }
