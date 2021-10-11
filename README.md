@@ -24,7 +24,6 @@ I have deployed the website [here](https://login-tech-test.netlify.app/)
 ### Improvements / future work
 
 Time permitting I would address the following next:
-- The buttons have an animation but it appears to be stuttering. 
 - There is an ESLint warning that needs to be addressed but no impact to functionality.
 - Sign out functionality was added but not tested (I need to look into testing react-router redirection).
 - Access to the policy webpage is not restricted, this could be implemented with some sort of authentication function. 

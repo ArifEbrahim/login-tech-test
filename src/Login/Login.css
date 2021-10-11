@@ -55,7 +55,7 @@ input{
 }
 
 button:hover {
-  box-shadow: inset 85px 0 0 grey;
+  background-color: grey;
 }
 
 .btn-text-light{

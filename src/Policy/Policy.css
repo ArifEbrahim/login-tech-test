@@ -64,3 +64,7 @@ h3 {
   text-transform: uppercase;
   color: black;
 }
+
+button:hover .btn-text-dark {
+  color: white
+}
