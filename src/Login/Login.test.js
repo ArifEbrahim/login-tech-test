@@ -36,3 +36,29 @@ it('should call axios on submit', ()=> {
   userEvent.click(submitBtn);
   expect(axios.post).toHaveBeenCalled()
 })
+
+it('should submit the correct data to the API', () => {
+  axios.post.mockReturnValue( {data: {
+    access_token:''
+  }})
+  render(<Login />);
+  const url = 'https://api.bybits.co.uk/auth/token'
+  const config = {
+    'headers': {
+      'environment': 'mock',
+      'Content-Type': 'application/json'
+    }
+  }
+  const data = {
+    "username":"testuser",
+    "password":"1234",
+    "type":"USER_PASSWORD_AUTH"
+  }
+  const usernameField = screen.getByLabelText(/username/i)
+  const passwordField = screen.getByLabelText(/password/i)
+  const submitBtn = screen.getByTestId('submit-btn')
+  userEvent.type(usernameField, data.username)
+  userEvent.type(passwordField, data.password)
+  userEvent.click(submitBtn)
+  expect(axios.post).toHaveBeenCalledWith(url, data, config)
+})
