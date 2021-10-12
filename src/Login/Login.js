@@ -47,7 +47,7 @@ export default function Login() {
             ></input>
             <label htmlFor="password">Password:</label>
             <input
-              type="text"
+              type="password"
               required
               id="password"
               onChange={e => setPassword(e.target.value)}
